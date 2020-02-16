@@ -1,28 +1,32 @@
 import React from 'react';
 
-export default function Message(props) {
+export default class Message extends React.Component {
 
-	const messageTemplate = "{greeting} {firstName}, and welcome to {company}";
+	messageTemplate = "{greeting} {firstName}, and welcome to {company}!";
+	defaultText = '_____';
 
-	const getGreeting = () => 'hello';
-	const getFirstName = () => props.guest?.firstName;
-	const getCompany = () => props.company?.company;
+	getGreeting = () => 'hello';
+	getFirstName = () => { return this.props.guest?.firstName ?? this.defaultText; }
+	getCompany = () => this.props.company?.company ?? this.defaultText;
 
-	const substitutions = {
-		greeting: getGreeting,
-		firstName: getFirstName,
-		company: getCompany
+	substitutions = {
+		greeting: this.getGreeting,
+		firstName: this.getFirstName,
+		company: this.getCompany
 	};
 
-	function constructMessage() {
-		let message = String(messageTemplate);
-		for(const sub in substitutions) {
-			message = message.replace(`{${sub}}`, substitutions[sub]());
+	constructMessage() {
+		let message = String(this.messageTemplate);
+		for(const sub in this.substitutions) {
+			message = message.replace(`{${sub}}`, this.substitutions[sub]());
 		}
 		return message;
 	}
 
-	return (
-		<span> {constructMessage()} </span>
-	);
+	render() {
+		return (
+			<span> {this.constructMessage()}</span>
+		);
+	}
+	
 };
