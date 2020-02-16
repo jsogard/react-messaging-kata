@@ -2,7 +2,8 @@ import React from 'react';
 import { GetAllGuests } from '../data/GuestService';
 import { GetAllCompanies } from '../data/CompanyService';
 import Message from '../components/Message';
-import DropdownSelect from '../components/DropdownSelect';
+import ListSelect from '../components/ListSelect';
+import '../static/Messenger.css';
 import {
 	Container, Row, Col,
 } from 'react-bootstrap';
@@ -25,18 +26,18 @@ export default class Messenger extends React.Component {
 	render() {
 		return (
 			<Container>
-				<h3> Send a Message </h3> 
+				<span className='title' > Send a Message </span> 
 				<Row>
 					<Message guest={this.state.selectedGuest} company={this.state.selectedCompany} />
 				</Row>
 				<Row>
 					<Col>
-						<h4> Guest </h4> 
-						<DropdownSelect title="Select Guest" items={this.state.guests} getItemText={this.getGuestFullName} onSelect={(g) => this.setState({selectedGuest: g})} /> 
+						<h4> Guests </h4> 
+						<ListSelect title="Select Guest" items={this.state.guests} getItemText={this.getGuestFullName} onSelect={(g) => this.setState({selectedGuest: g})} /> 
 					</Col>
 					<Col>
 						<h4> Company </h4>
-						<DropdownSelect title="Select Company" items={this.state.companies} getItemText={(c) => c.company} onSelect={(c) => this.setState({selectedCompany: c})} />
+						<ListSelect title="Select Company" items={this.state.companies} getItemText={(c) => c.company} onSelect={(c) => this.setState({selectedCompany: c})} />
 					</Col>
 				</Row>
 			</Container>

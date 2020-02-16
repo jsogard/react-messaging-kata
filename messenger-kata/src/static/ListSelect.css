@@ -1,0 +1,11 @@
+td.selectable:hover, td.selectable.selected {
+    background-color: rgba(0,0,0,0.1);
+}
+
+td.selectable {
+	cursor: pointer;
+}
+
+td.selectable.selected {
+	font-weight: bold;
+}

@@ -1,0 +1,9 @@
+span.message {
+    margin: auto;
+    border: 1px solid lightgrey;
+    padding: 2%;
+    font-style: italic;
+    letter-spacing: 0.1rem;
+    width: 85%;
+    margin-top: 1%;
+}

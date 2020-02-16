@@ -1,4 +1,5 @@
 import React from 'react';
+import '../static/Message.css';
 
 export default class Message extends React.Component {
 
@@ -36,7 +37,7 @@ export default class Message extends React.Component {
 
 	render() {
 		return (
-			<span> {this.constructMessage()}</span>
+			<span className='message' > {'"' + this.constructMessage() + '"'}</span>
 		);
 	}
 	
