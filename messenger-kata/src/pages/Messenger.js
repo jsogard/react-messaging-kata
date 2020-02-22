@@ -40,11 +40,11 @@ export default function Messenger(props) {
 			</Row>
 			<Row>
 				<Col>
-					<h4> Guests </h4> 
+					<h5> Guests </h5> 
 					<ListSelect title="Select Guest" items={guests} getItemText={getGuestFullName} onSelect={(g) => selectGuest(g)} /> 
 				</Col>
 				<Col>
-					<h4> Company </h4>
+					<h5> Company </h5>
 					<ListSelect title="Select Company" items={companies} getItemText={(c) => c.company} onSelect={(c) => selectCompany(c)} />
 				</Col>
 			</Row>

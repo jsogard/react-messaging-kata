@@ -5,3 +5,6 @@
     letter-spacing: 0.05rem;
 }
 
+button {
+	margin: 5% !important;
+}
